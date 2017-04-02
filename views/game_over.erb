@@ -1,0 +1,9 @@
+<%if session[:board].win_game?%>
+	<%=current_player%> won the game.
+	Do you want to play again?
+	<a href="/">reset game</a>
+	<%elsif session[:board].draw_game?%>
+	The game ended in a tie.
+	Do you want to play again?
+	<a href="/">reset game</a>
+<%end%>
