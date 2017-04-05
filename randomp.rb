@@ -1,7 +1,7 @@
 require_relative 'boardp.rb'
 require_relative 'consolep.rb'
 
-class Random
+class Randoms
 
 	attr_accessor :marker, :board, :current_player
 

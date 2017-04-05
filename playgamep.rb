@@ -45,7 +45,7 @@ case type
 	when 3
 		
 		player1 = Human.new(player1_marker)
-		player2 = Random.new(player2_marker)
+		player2 = Randoms.new(player2_marker)
 		game = Console.new(player1,player2)
 	
 	when 4

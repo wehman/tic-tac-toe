@@ -31,7 +31,7 @@ post "/name" do
 		when 2
 			session[:player2] = Sequential.new(player2_marker)	
 		when 3
-			session[:player2] = Random.new(player2_marker)
+			session[:player2] = Randoms.new(player2_marker)
 		when 4
 			session[:player2] = Unbeatable.new(player2_marker)
 	end
