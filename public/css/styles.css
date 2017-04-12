@@ -1,5 +1,6 @@
 table, th, td {
     border: 1px solid blue;
+    background-color: cyan;
     border-collapse: collapse;
 }
 th, td {
