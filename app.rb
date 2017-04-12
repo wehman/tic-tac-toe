@@ -13,7 +13,7 @@ get "/" do
 end
 
 post "/name" do
- 	session[:name]=params[:user_name]
+ 	session[:name]=params[:user_name] || ""
  	game_type=params[:game_type].to_i
  	marker=params[:marker].to_i
  	if marker == 1
@@ -36,11 +36,12 @@ post "/name" do
 			session[:player2] = Unbeatable.new(player2_marker)
 	end
 	session[:board] = TTTBoard.new
-	redirect "/table_display_get_move"
+	redirect "/table_display_get_move_clickable"
 end
 
-get "/table_display_get_move" do
- 	erb :table_display_get_move
+get "/table_display_get_move_clickable" do
+ 	erb :table_display_get_move_clickable, locals: {board: session[:board].ttt_board,
+ 		current_player: session[:current_player].marker}
 end	
 
 post "/get_move" do
@@ -51,7 +52,7 @@ end
 
 get "/get_move" do
  	if session[:current_player].class == Human
- 		redirect "/table_display_get_move"
+ 		redirect "/table_display_get_move_clickable"
  	elsif session[:current_player].class != Human 	
  		position = session[:current_player].get_move(session[:board],session[:current_player])
  		position = position.to_i

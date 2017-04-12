@@ -4,7 +4,7 @@ require_relative "boardp.rb"
 class TestTTTBoard < Minitest::Test
 	def test_new_board
 		board = TTTBoard.new 
-		assert_equal([1,2,3,4,5,6,7,8,9], board.ttt_board)
+		assert_equal([1,2,3,4,5,6,7,8,9],board.ttt_board)
 	end
 
 	def test_update_position_2
