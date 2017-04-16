@@ -117,4 +117,35 @@ class TestUnbeatable < Minitest::Test
 		assert_equal(8,result)
 	end
 
+	def test_block_corner_at8
+		board = TTTBoard.new
+		board.ttt_board = [1,2,"X",4,"O",6,7,"X",9]
+		unbeatable = Unbeatable.new("O")
+		result = unbeatable.get_move(board,"O")
+		assert_equal(8,result)
+	end
+
+	def test_block_corner_at2
+		board = TTTBoard.new
+		board.ttt_board = [1,"X",3,4,"O",6,7,8,"X"]
+		unbeatable = Unbeatable.new("O")
+		result = unbeatable.get_move(board,"O")
+		assert_equal(2,result)
+	end
+
+	def test_block_corner_at0
+		board = TTTBoard.new
+		board.ttt_board = [1,2,"X","X","O",6,7,8,9]
+		unbeatable = Unbeatable.new("O")
+		result = unbeatable.get_move(board,"O")
+		assert_equal(0,result)
+	end
+
+	def test_block_corner_at_8
+		board = TTTBoard.new
+		board.ttt_board = [1,2,3,4,"O","X","X",8,9]
+		unbeatable = Unbeatable.new("O")
+		result = unbeatable.get_move(board,"O")
+		assert_equal(8,result)
+	end
 end

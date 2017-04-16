@@ -118,8 +118,26 @@ class Unbeatable
 			return position = 3
 		elsif board_played == [other_marker," "," "," ",marker," "," "," ",other_marker]
 			return position = 3
-		end		
+		end	
 
+		# handle corner and opposite side case for a block
+		if board_played[2] == other_marker && board_played[7] == other_marker && 
+			board_played[5] == " " && board_played[6] == " " && board_played[8] == " "
+			return position = 8
+		end
+		if board_played[1] == other_marker && board_played[8] == other_marker && 
+			board_played[0] == " " && board_played[2] == " " && board_played[5] == " "
+			return position = 2
+		end
+		if board_played[2] == other_marker && board_played[3] == other_marker && 
+			board_played[0] == " " && board_played[1] == " " && board_played[6] == " "
+			return position = 0
+		end		
+		if board_played[5] == other_marker && board_played[6] == other_marker && 
+			board_played[2] == " " && board_played[7] == " " && board_played[8] == " "
+			return position = 8
+		end
+		
 		board_played_positions.each_with_index do |line, index|
 			if (line.count(marker) == 1 && line.count(" ") == 2)
 				position = board_straight_lines[index][line.index(" ")]	
