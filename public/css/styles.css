@@ -1,5 +1,13 @@
+h1 {
+	color:blueviolet;
+}
+
+h2 {
+	color:red;
+}
+
 table, th, td {
-    border: 1px solid blue;
+    border: 6px solid blue;
     background-color: cyan;
     border-collapse: collapse;
 }
