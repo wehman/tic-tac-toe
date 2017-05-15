@@ -13,7 +13,11 @@ get "/" do
 end
 
 post "/name" do
- 	session[:name]=params[:user_name] || ""
+ 	session[:name1]=params[:user_name1] || ""
+ 	session[:name2]=params[:user_name2] || ""
+ 	if session[:name2]==""
+ 		session[:name2]="Computer"
+ 	end
  	game_type=params[:game_type].to_i
  	marker=params[:marker].to_i
  	if marker == 1

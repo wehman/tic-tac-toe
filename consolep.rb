@@ -43,7 +43,13 @@ class Console
     end
 
     def game_over?
-    	board.win_game? || board.draw_game?
+    	if board.win_game? == true
+            return true
+        elsif board.draw_game? == true
+            return true
+        else
+            return false
+        end
     end
 
     def display_game_status
