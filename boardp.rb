@@ -26,6 +26,7 @@ class TTTBoard
 		ttt_board.grep(Fixnum) == []
 	end
 
+#   alternative full board code
 #	def full_board?()
 #		ttt_board.count("1" && "2" && "3" && "4" && "5" && "6" && "7" && "8" && "9") == 0
 #	end

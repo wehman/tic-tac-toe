@@ -60,8 +60,7 @@ post "/get_move" do
     end 		
  		
  		session[:board].update_position(position, session[:current_player].marker)
-		redirect "/check_game_status"
-	
+		redirect "/check_game_status"	
 end
 
 get "/get_move" do
