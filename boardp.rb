@@ -14,6 +14,11 @@ class TTTBoard
 	end
 
 	def avail_position?(position)
+		# if ttt_board[position].class == Fixnum
+		# 	return true
+		# else
+		# 	return false
+		# end
 		ttt_board[position].class == Fixnum
 	end
 

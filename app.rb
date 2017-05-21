@@ -48,10 +48,20 @@ get "/table_display_get_move_clickable" do
  		current_player: session[:current_player].marker}
 end	
 
+get "/table_display_get_move_occupied" do
+ 	erb :table_display_get_move_occupied, locals: {board: session[:board].ttt_board,
+ 		current_player: session[:current_player].marker}
+end	
+
 post "/get_move" do
  	position = params[:position].to_i - 1 # array slot is one less
- 	session[:board].update_position(position, session[:current_player].marker)
-	redirect "/check_game_status"
+ 	while session[:board].avail_position?(position) == false do
+ 		redirect "/table_display_get_move_occupied"
+    end 		
+ 		
+ 		session[:board].update_position(position, session[:current_player].marker)
+		redirect "/check_game_status"
+	
 end
 
 get "/get_move" do

@@ -38,6 +38,25 @@ class TestTTTBoard < Minitest::Test
 	 	assert_equal(false,board.avail_position?(10))
 	end
 
+	def test_update_position_2
+		board = TTTBoard.new 
+		board.ttt_board = ["X","X",3,"O","O",6,7,"X","O"]
+		board.update_position(1,"X")
+		assert_equal(false,board.avail_position?(1))
+	end
+
+	def test_valid_position_at_6
+	 	board = TTTBoard.new 
+	 	board.ttt_board = ["X","X",3,"O","O",6,7,"X","O"]
+	 	assert_equal(true,board.avail_position?(6))
+	end
+
+	def test_occupied_position_at_8
+	 	board = TTTBoard.new 
+	 	board.ttt_board = ["X","X",3,"O","O",6,7,"X","O"]
+	 	assert_equal(false,board.avail_position?(8))
+	end
+
 	def test_full_board
 		board = TTTBoard.new 
 		board.ttt_board =["X","O","X","O","X","X","O","X","O"]
